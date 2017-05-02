@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Tareas</h1>
+
+	{{ form_start(formCat) }} {{ form_widget(formCat) }} {{ form_end(formCat) }}
+
+	<div id="my_tasks">
+		 {{ render(controller('TaskBundle:Default:taskList',{'max':'3'}))}} 
+		{#{{ include ('tasklist.html.twig' ,{'tasks':tasks})  }} #}
+	</div>
+{% endblock %}

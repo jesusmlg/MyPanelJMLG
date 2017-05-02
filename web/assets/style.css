@@ -1,0 +1,69 @@
+.navbar{
+	
+	
+}
+body{
+	padding-top:70px;
+	padding-bottom: 50px;
+}
+footer{
+	background-color: #f8f8f8;
+ 	width: 100%;
+ 	bottom: 0;
+ 	position: fixed;
+ 	color:#505050;
+ 	float: none;
+	text-align: center;
+	overflow: hidden;
+	width: 100%;
+}
+ul li{
+	margin-left: 	0px;
+	padding-left: 	0px;
+	list-style: 	none;
+}
+ul{
+	margin-left: 	0px;
+	padding-left: 	0px;
+}
+
+.footer_left{
+	float: left;
+	text-align: left;
+	display: inline;
+	width: 48%;
+	margin-left: 2%;
+}
+.footer_right{
+	float: right;
+	text-align: right;
+	display: inline;
+	width: 48%;
+	margin-right:2%;
+}
+.glyphicon{
+	cursor: pointer;	
+}
+#alerts{
+	width: 80%;	
+	padding: 5px 20px 5px 20px;
+	margin: 0 auto;
+	color: #000;
+}
+.alert{
+	background-color: #FAF4B6;
+}
+.error{
+	background-color: #FEBBBB;
+}
+.success{
+	background-color: #BAFFD1;
+}
+.duedate{
+	font-size: 10px;
+	font-style: italic;
+}
+.important{
+	color: #FF0000;
+	font-weight: bold;
+}

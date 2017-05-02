@@ -1,0 +1,12 @@
+<p>Pendientes: {{ tasks|length}}</p>
+		<ul class="list-group">
+			{% for task in tasks %}
+				<li class="list-group-item">
+					<input type="checkbox" name="{{task.id}}" id="{{task.id}}" class="task_list" value="{{task.id}}">
+					{{task.name}} 
+					<a href="{{path('edit_task',{'id': task.id})}}"><span class="glyphicon glyphicon-edit"></span></a>
+					<span class="duedate">({{ task.daysleft }} día/s)</span> 
+					{% if task.important == 1 %} <span class="important">!</span> {% endif %}
+				</li>
+			{% endfor %}
+		</ul>
