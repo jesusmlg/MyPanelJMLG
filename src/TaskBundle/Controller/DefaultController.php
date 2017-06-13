@@ -26,10 +26,7 @@ class DefaultController extends Controller
      * @Route("/oldtasks", name="old_tasks")
      */
     public function indexAction(Request $request)
-    {              
-        
-       
-
+    {                          
         //$repo = $this->getDoctrine()->getManager()->getRepository('TaskBundle:Task');
         //$tasks = $repo->findTasksIndex($request->request->get('taskCategory'),$done);
 
@@ -61,9 +58,11 @@ class DefaultController extends Controller
      * @Route("/taskslist", name="all_tasks_list")
      * @Method({"POST","GET"})
      */
-    public function taskListAction(Request $request)
+    public function taskListAction(Request $request, $url="")
     {
-        if( $url = $request->getRequestUri() == $this->generateUrl('all_tasks') )
+        
+
+        if( $url == $this->generateUrl('all_tasks') )
             $done = 0;
         else
             $done = 1;

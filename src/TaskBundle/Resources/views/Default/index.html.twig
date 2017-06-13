@@ -6,7 +6,7 @@
 	{{ form_start(formCat) }} {{ form_widget(formCat) }} {{ form_end(formCat) }}
 
 	<div id="my_tasks">
-		 {{ render(controller('TaskBundle:Default:taskList',{'max':'3'}))}} 
+		 {{ render(controller('TaskBundle:Default:taskList',{'url': path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) ,'max':'3'}))}} 
 		{#{{ include ('tasklist.html.twig' ,{'tasks':tasks})  }} #}
 	</div>
 {% endblock %}
