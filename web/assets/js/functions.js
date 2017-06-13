@@ -35,7 +35,7 @@ $(document).ready(function(){
 
         $.ajax({
             url: '/taskslist',
-            data: 'taskCategory='+id+ '&url=taskslist',
+            data: 'taskCategory='+id+ '&url='+window.location.pathname,
             method: 'POST',
             //dataType: 'json',
             success: function(response)

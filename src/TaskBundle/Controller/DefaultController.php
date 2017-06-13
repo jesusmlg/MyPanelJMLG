@@ -60,7 +60,8 @@ class DefaultController extends Controller
      */
     public function taskListAction(Request $request, $url="")
     {
-        
+        if($url == "")
+            $url = $request->request->get("url");
 
         if( $url == $this->generateUrl('all_tasks') )
             $done = 0;
