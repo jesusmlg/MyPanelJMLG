@@ -5,6 +5,9 @@ root:
         path: /tasks
         permanent: true
 
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
 beer:
     resource: "@BeerBundle/Controller/"
     type:     annotation

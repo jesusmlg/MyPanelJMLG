@@ -117,7 +117,7 @@ class DefaultController extends Controller
     {
         $task = new Task();
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('TaskBundle:Task');
 
         $task = $repo->find($id);
@@ -151,7 +151,7 @@ class DefaultController extends Controller
         $values = $request->request->get('checkedValues');
         $arrayvalues = explode(",",$values);
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository('TaskBundle:Task');
 
 
