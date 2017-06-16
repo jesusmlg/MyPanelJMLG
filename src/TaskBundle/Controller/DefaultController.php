@@ -102,7 +102,7 @@ class DefaultController extends Controller
             $em->persist($task);
             $em->flush();
             
-            return $this->redirectToRoute('nueva_tarea');
+            return $this->redirectToRoute('new_task');
 
         }
 

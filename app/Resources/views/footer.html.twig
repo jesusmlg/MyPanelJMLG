@@ -1,13 +1,13 @@
 
 {# <div id="footer-container">	 #}
 	<div class="footer_left">
-		Total: <span class="glyphicon glyphicon-ok" id="checkdone"></span> 
+		
 	</div>
 	<div class="footer_right">
 		{% if path('all_tasks') == path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
-			<span class="glyphicon glyphicon-ok warning" id="checkdone" style="padding-right: 40px;"></span>
+			<span class="glyphicon glyphicon-ok warning" id="CheckToDone" style="padding-right: 40px;"></span>
 		{% elseif path('old_tasks') == path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) %}
-			<span class="glyphicon glyphicon-trash warning" id="checkdone" style="padding-right: 40px;"></span>
+			<span class="glyphicon glyphicon-trash warning" id="CheckToTrash" style="padding-right: 40px;"></span>
 		{% endif %}
 		
 	</div>

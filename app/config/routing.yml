@@ -1,3 +1,17 @@
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /tasks
+        permanent: true
+
+beer:
+    resource: "@BeerBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
+
 task:
     resource: "@TaskBundle/Controller/"
     type:     annotation
@@ -6,3 +20,4 @@ task:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+

@@ -35,9 +35,9 @@ class Task
     private $name;
 
     /**
-     * @var int
+     * @var bool
      *
-     * @ORM\Column(name="important", type="integer")
+     * @ORM\Column(name="important", type="boolean")
      */
     private $important;
 
@@ -49,9 +49,9 @@ class Task
     private $duedate;
 
     /**
-     * @var int
+     * @var bool
      *
-     * @ORM\Column(name="done", type="integer")
+     * @ORM\Column(name="done", type="boolean")
      */
     private $done = false;
 
@@ -93,7 +93,7 @@ class Task
     /**
      * Set important
      *
-     * @param integer $important
+     * @param boolean $important
      *
      * @return Task
      */
@@ -107,7 +107,7 @@ class Task
     /**
      * Get important
      *
-     * @return int
+     * @return bool
      */
     public function getImportant()
     {
@@ -165,7 +165,7 @@ class Task
     /**
      * Set done
      *
-     * @param integer $done
+     * @param boolean $done
      *
      * @return Task
      */
@@ -179,7 +179,7 @@ class Task
     /**
      * Get done
      *
-     * @return int
+     * @return boolean
      */
     public function getDone()
     {

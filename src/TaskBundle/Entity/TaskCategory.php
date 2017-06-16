@@ -29,7 +29,7 @@ class TaskCategory
     private $name;
 
     /**
-      * @ORM\OneToMany(targetEntity="Task", mappedBy="taskcategory")
+      * @ORM\OneToMany(targetEntity="Task", mappedBy="taskCategory")
       */
     private $tasks;
 

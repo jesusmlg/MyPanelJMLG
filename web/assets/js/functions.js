@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	//alert("0");
-	$(document).on('click','#checkdone',function(e){
+	$(document).on('click','#CheckToDone',function(e){
 		var checkedValues = $('input:checkbox:checked').map(function() {
     		return this.value;
 		}).get();
