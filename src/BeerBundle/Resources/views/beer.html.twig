@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<img src="{{ asset('uploads/img/beer/' ~ beer.img) }}">
+	<ul>
+		<li>
+			Nombre: {{ beer.name }}
+		</li>
+
+		<li>
+			Graduacion: {{ beer.graduation }}
+		</li>
+		<li>
+			Precio: {{ beer.price }}
+		</li>
+		<li>
+			Nota: {{ beer.top }}
+		</li>
+		<li>
+			Comentarios: {{ beer.comments }}
+		</li>
+	</ul>
+	
+{% endblock %}

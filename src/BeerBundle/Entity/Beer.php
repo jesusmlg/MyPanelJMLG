@@ -31,9 +31,9 @@ class Beer
     /**
      * @var string
      *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(name="img", type="string", length=255)
      */
-    private $path;
+    private $img;
 
     /**
      * @var string
@@ -99,27 +99,27 @@ class Beer
     }
 
     /**
-     * Set path
+     * Set img
      *
-     * @param string $path
+     * @param string $img
      *
      * @return Beer
      */
-    public function setPath($path)
+    public function setImg($img)
     {
-        $this->path = $path;
+        $this->img = $img;
 
         return $this;
     }
 
     /**
-     * Get path
+     * Get img
      *
      * @return string
      */
-    public function getPath()
+    public function getImg()
     {
-        return $this->path;
+        return $this->img;
     }
 
     /**

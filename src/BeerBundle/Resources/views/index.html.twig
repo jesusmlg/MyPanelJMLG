@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h2>Listado</h2>
+	<ul>
+		{% for b in beers %}
+			<li>
+				<img src="{{ asset('uploads/img/beer/' ~ b.img) | imagine_filter('my_thumb')}}" > <a href="{{ path('beer', {'id': b.id }) }}">{{ b.id }} - {{ b.name }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

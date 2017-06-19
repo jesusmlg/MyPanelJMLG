@@ -8,6 +8,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 //use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 //use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -26,12 +28,20 @@ class BeerType extends AbstractType
                       array('attr' => array ('class' => 'form-control'))
                      )
                 //->add('path')
-                ->add('comments',TextareaType::class, array('attr' => array ('class' => 'form-control')))
-                ->add('top',NumberType::class, array('attr'=> array ('class' => 'form-control' )))
-                ->add('price',TextType::class, array('attr' => array ('class' => 'form-control')))
-                ->add('graduation',TextType::class, array('attr' => array ('class' => 'form-control')))
-                ->add('path',TextType::class, array('attr' => array ('class' => 'form-control')))
-                ->add('save',SubmitType::class, array('label'=> 'Guardar Cerveza', 'attr' => array('class' => 'btn btn-primary form-control')))
+                ->add('comments',TextareaType::class, array('attr' => array ('class' => 'form-control'),
+                                                            'required' =>false)
+                                                           )
+                ->add('top',IntegerType::class, array('attr'=> array ('class' => 'form-control' )))
+                ->add('price',NumberType::class, array('attr' => array ('class' => 'form-control')))
+                ->add('graduation',NumberType::class, array('attr' => array ('class' => 'form-control')))
+                ->add('img',FileType::class, array('attr' => array ('class' => 'form-control'), 
+                                                    'required' => false)
+                                                   )
+                ->add('save',SubmitType::class, array('label'=> 'Guardar Cerveza', 
+                                                       'attr' => array('class' => 'btn btn-primary form-control')
+                                                       
+                                                     )
+                    )
                 ;
     }
     

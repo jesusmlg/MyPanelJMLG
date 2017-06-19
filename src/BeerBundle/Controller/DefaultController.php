@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File\File;
 use BeerBundle\Entity\Beer;
 use BeerBundle\Form\BeerType;
 
@@ -13,11 +14,15 @@ use BeerBundle\Form\BeerType;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/beers")
+     * @Route("/beers", name="all_beers")
      */
     public function indexAction()
     {
-        return $this->render('BeerBundle:Default:index.html.twig');
+        $beers = new Beer();
+
+        $beers = $this->getDoctrine()->getManager()->getRepository('BeerBundle:Beer')->findAll();
+
+        return $this->render('BeerBundle::index.html.twig', array('beers' => $beers));
     }
 
     /**
@@ -31,17 +36,43 @@ class DefaultController extends Controller
 
     	$form->handleRequest($request);
 
-    	if($form->isSubmitted()  && $form->isValid())
+    	if($form->isSubmitted() && $form->isValid())
         {
             $beer = $form->getData();
+            $img = $beer->getImg();
+            $filename = md5(uniqid()).'.'.$img->guessExtension();
+
+            $img->move(
+            	$this->getParameter('beer_img_directory'),
+            	$filename
+            	);
+            
+            	$beer = $form->getData();
+            	
+            	$beer->setImg($filename);
+            	//$beer->setImg(new File($this->getParameter('beer_img_directory').'/'.$beer->getImg()));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($beer);
             $em->flush();
             
-            return $this->redirectToRoute('new_beer');
+            return $this->redirectToRoute('all_beers');
 
         }
 
     	return $this->render('BeerBundle::new.html.twig',array('form' => $form->createView()));
+    }
+
+    /**
+	 * @Route("/beer/{id}", name="beer")	
+    */
+
+    public function beerAction(Request $request, $id)
+    {
+    	$beer = new Beer();
+
+    	$beer = $this->getDoctrine()->getManager()->getRepository('BeerBundle:Beer')->find($id);
+
+    	return $this->render('BeerBundle::beer.html.twig', array('beer' => $beer));
     }
 }
