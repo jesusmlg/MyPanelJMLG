@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\File\File;
 use BeerBundle\Entity\Beer;
 use BeerBundle\Form\BeerType;
@@ -74,5 +75,27 @@ class DefaultController extends Controller
     	$beer = $this->getDoctrine()->getManager()->getRepository('BeerBundle:Beer')->find($id);
 
     	return $this->render('BeerBundle::beer.html.twig', array('beer' => $beer));
+    }
+
+    /**
+     * @Route ("/beer/{id}/delete",name = "delete_beer")
+     */
+
+    public function deleteAction(Request $request, $id)
+    {
+    	$em = $this->getDoctrine()->getManager();
+    	//$id = $request->request()->get('id');
+    	//$id = $request->query->get('id');
+
+    	$beer = new Beer();
+    	$beer = $em->getRepository('BeerBundle:Beer')->find($id);
+
+    	if($beer)
+    	{
+    		$em->remove($beer);
+    		$em->flush();
+    		return $this->redirectToRoute('all_beers'); 
+    	}
+
     }
 }
