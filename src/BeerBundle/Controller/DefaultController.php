@@ -79,6 +79,7 @@ class DefaultController extends Controller
 
     /**
      * @Route ("/beer/{id}/delete",name = "delete_beer")
+     * @Method({"DELETE","GET"})
      */
 
     public function deleteAction(Request $request, $id)

@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	
 	{{ form_start(form) }}
-		->{{ form_errors(form) }} <-
+		#{{ form_errors(form) }}#
 		<div class="form-group">
-			{{ form_label(form.name, 'Cerveza') }} {{ form_widget(form.name) }}
+			{{ form_label(form.name, 'Cerveza') }} {{ form_widget(form.name) }} {{form_errors(form.name) }}
 		</div>
 
-			<div class="form-group">{{ form_label(form.graduation, 'Graduación') }} {{ form_widget(form.graduation) }}</div>
-			<div class="form-group">{{ form_label(form.price, 'Precio') }} {{ form_widget(form.price) }}</div>
-			<div class="form-group">{{ form_label(form.top, 'Top') }} {{ form_widget(form.top) }}</div>
-			<div class="form-group">{{ form_label(form.img, 'Ruta') }} {{ form_widget(form.img) }}</div>
-			<div class="form-group">{{ form_label(form.comments, 'Comentarios') }} {{ form_widget(form.comments) }}</div>
+			<div class="form-group">{{ form_label(form.graduation, 'Graduación') }} {{ form_widget(form.graduation) }} {{form_errors(form.graduation) }}</div>
+			<div class="form-group">{{ form_label(form.price, 'Precio') }} {{ form_widget(form.price) }} {{form_errors(form.price) }}</div>
+			<div class="form-group">{{ form_label(form.top, 'Top') }} {{ form_widget(form.top) }} {{form_errors(form.top) }}</div>
+			<div class="form-group">{{ form_label(form.img, 'Ruta') }} {{ form_widget(form.img) }} {{form_errors(form.img) }}</div>
+			<div class="form-group">{{ form_label(form.comments, 'Comentarios') }} {{ form_widget(form.comments) }} {{form_errors(form.comments) }}</div>
 			
 			<div class="form-group">{{ form_widget(form.save) }}</div>
 		</div>

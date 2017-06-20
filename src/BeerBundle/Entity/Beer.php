@@ -3,6 +3,7 @@
 namespace BeerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Beer
@@ -53,6 +54,11 @@ class Beer
      * @var string
      *
      * @ORM\Column(name="price", type="decimal", precision=10, scale=2)
+     * @Assert\Length(min="5", minMessage="Longitud de 5 al menos")
+     * @Assert\Type(
+     *     type="numeric",
+     *     message="The value {{ value }} is not a valid {{ type }}."
+     * )
      */
     private $price;
 

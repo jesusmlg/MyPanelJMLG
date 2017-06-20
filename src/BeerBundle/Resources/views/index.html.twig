@@ -5,7 +5,7 @@
 	<ul>
 		{% for b in beers %}
 			<li>
-				<img src="{{ asset('uploads/img/beer/' ~ b.img) | imagine_filter('my_thumb')}}" > <a href="{{ path('beer', {'id': b.id }) }}" >{{ b.id }} - {{ b.name }}</a> 
+				<img src="{{ asset('uploads/img/beer/' ~ b.img) | imagine_filter('my_thumb')}}" class="beer-thumbnail"> <a href="{{ path('beer', {'id': b.id }) }}" >{{ b.id }} - {{ b.name }}</a> 
 				<a href="{{ path('delete_beer',{'id' : b.id} )}}" data-method="delete" onclick="return confirm('Confirma si quieres borrar')">Borrar</a>
 			</li>
 		{% endfor %}
